@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "build",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": [
+    "index.ts",
+    "controllers",
+    "middlewares",
+    "routes",
+    "services",
+    "prisma"
+  ]
+}
