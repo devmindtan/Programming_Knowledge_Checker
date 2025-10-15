@@ -7,12 +7,6 @@
     "esModuleInterop": true,
     "strict": true
   },
-  "include": [
-    "index.ts",
-    "controllers",
-    "middlewares",
-    "routes",
-    "services",
-    "prisma"
-  ]
+  "exclude": ["dist", "node_modules"],
+  "include": ["src/**/*.ts"]
 }
