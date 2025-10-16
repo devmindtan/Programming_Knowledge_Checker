@@ -1,16 +1,15 @@
 import { Request, Response } from "express";
-import { Test } from "../models/test.schema";
+import { Dsa } from "../models/dsa.schema";
 
-export const testController = async (req: Request, res: Response) => {
+export const dsaController = async (req: Request, res: Response) => {
   try {
-    // Lấy dữ liệu từ collection "tests"
-    const data = await Test.find({});
+    const data = await Dsa.find({});
     if (data.length == 0) {
       res.json({
         message: "Không có dữ liệu nào",
       });
     }
-    res.json(data);
+    res.status(200).json(data);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });

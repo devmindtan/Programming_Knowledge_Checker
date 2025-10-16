@@ -1,8 +1,12 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import connectDB from "./configs/connect.db";
+
 import testControllerApi from "./routes/test.api";
+import dsaControllerApi from "./routes/dsa.api";
+import topicControllerApi from "./routes/topic.api";
+import prociencyControllerApi from "./routes/proficiency_level.api";
 
 dotenv.config();
 const app = express();
@@ -10,16 +14,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/", testControllerApi);
+connectDB();
 
-// MongoDB connection (optional)
-const MONGO_URI = process.env.MONGO_URI;
-if (MONGO_URI) {
-  mongoose
-    .connect(MONGO_URI)
-    .then(() => console.log("MongoDB connected ✅"))
-    .catch((err) => console.error("MongoDB error:", err));
-}
+app.use("/api/test", testControllerApi);
+app.use("/api", dsaControllerApi);
+app.use("/api", topicControllerApi);
+app.use("/api", prociencyControllerApi);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
