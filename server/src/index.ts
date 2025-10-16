@@ -1,8 +1,8 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import { testControllerApi } from "./routes/user.api";
+import testControllerApi from "./routes/test.api";
 
 dotenv.config();
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/users", testControllerApi);
+app.use("/", testControllerApi);
 
 // MongoDB connection (optional)
 const MONGO_URI = process.env.MONGO_URI;
