@@ -7,6 +7,7 @@ export const dsaController = async (req: Request, res: Response) => {
     if (data.length == 0) {
       res.json({
         message: "Không có dữ liệu nào",
+        data: [],
       });
     }
     res.status(200).json(data);

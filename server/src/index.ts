@@ -4,9 +4,12 @@ import dotenv from "dotenv";
 import connectDB from "./configs/connect.db";
 
 import testControllerApi from "./routes/test.api";
-import dsaControllerApi from "./routes/dsa.api";
-import topicControllerApi from "./routes/topic.api";
-import prociencyControllerApi from "./routes/proficiency_level.api";
+import getAllDsaRoute from "./routes/dsa.api";
+import getAllDomainsRoute from "./routes/domain";
+import getDomainRoute from "./routes/domain";
+import getAllProficienyLevelsRoute from "./routes/proficiency_level.api";
+import getAllTopicRoute from "./routes/topic.api";
+import createTopicRoute from "./routes/topic.api";
 
 dotenv.config();
 const app = express();
@@ -17,9 +20,12 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/test", testControllerApi);
-app.use("/api", dsaControllerApi);
-app.use("/api", topicControllerApi);
-app.use("/api", prociencyControllerApi);
+app.use("/api", getAllDsaRoute);
+app.use("/api", getAllDomainsRoute);
+app.use("/api", getDomainRoute);
+app.use("/api", getAllProficienyLevelsRoute);
+app.use("/api", getAllTopicRoute);
+app.use("/api", createTopicRoute);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

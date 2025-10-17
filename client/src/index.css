@@ -1,9 +1,21 @@
 @import "tailwindcss";
-
 @plugin "tailwindcss-animate";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "CaskaydiaCove NF";
+  src: url("/fonts/CaskaydiaCoveNerdFont-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  font-family: "CaskaydiaCove NF", ui-sans-serif, system-ui;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

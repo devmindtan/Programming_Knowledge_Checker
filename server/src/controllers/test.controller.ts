@@ -8,6 +8,7 @@ export const testController = async (req: Request, res: Response) => {
     if (data.length == 0) {
       res.json({
         message: "Không có dữ liệu nào",
+        data: [],
       });
     }
     res.json(data);
